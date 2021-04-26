@@ -1,7 +1,7 @@
 from flask import Blueprint, render_template
 
 from forms.HouseForm import HouseForm
-from lib.HousePricePredictor import HousePricePredictor
+from classes.HousePricePredictor import HousePricePredictor
 
 main_blueprint = Blueprint('main_blueprint', __name__, template_folder='templates')
 
