@@ -1,0 +1,12 @@
+.page-control{
+    cursor: pointer;
+}
+
+.page-control:hover{
+    background: rgba(224, 224, 224, 0.67);
+}
+
+.page-control-inactive{
+    cursor: default;
+    color: #868686;
+}

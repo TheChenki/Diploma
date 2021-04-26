@@ -1,0 +1,156 @@
+{% from 'elements/form-group.html' import form_group %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>House price prediction</title>
+
+    <link href="{{ url_for('static', filename='css/bootstrap.css') }}" rel="stylesheet">
+    <link href="{{ url_for('static', filename='css/style.css') }}" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.4.1/font/bootstrap-icons.css">
+
+    <script type="application/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
+    <script type="application/javascript" src="{{ url_for('static', filename='js/pagination.js') }}"></script>
+    <script type="application/javascript" src="{{ url_for('static', filename='js/bootstrap.bundle.js') }}"></script>
+</head>
+
+<body>
+<header>
+    <div class="navbar navbar-expand-xxl navbar-dark bg-dark shadow">
+        <div class="container-fluid">
+            <a class="navbar-brand" href="{{ url_for('main_blueprint.index') }}">House price prediction</a>
+        </div>
+    </div>
+</header>
+<main class="container-fluid flex-grow-1 d-flex">
+    <div class="row justify-content-center align-items-center flex-grow-1">
+        <div class="col-lg-4 g-3">
+            <div class="card">
+                <form method="post">
+                    <div class="card-header">
+                        <b>House price prediction</b>
+                    </div>
+                    <div class="card-body flex-row d-flex p-0">
+                        <div data-control="prev" class="d-flex page-control-inactive">
+                            <i class="bi bi-chevron-compact-left align-self-center" style="font-size: 2rem"></i>
+                        </div>
+
+                        <div class="flex-grow-1 my-3 px-3">
+                            <div data-page="0">
+                                {{ form_group(form.neighborhood, 'form-select') }}
+                                {{ form_group(form.lot_shape, 'form-select') }}
+                                {{ form_group(form.land_contour, 'form-select') }}
+                                {{ form_group(form.land_slope, 'form-select') }}
+                                {{ form_group(form.lot_config, 'form-select') }}
+                                {{ form_group(form.lot_area, 'form-control') }}
+                            </div>
+                            <div data-page="1">
+                                {{ form_group(form.lot_frontage, 'form-control') }}
+                                {{ form_group(form.street, 'form-select') }}
+                                {{ form_group(form.alley, 'form-select') }}
+                                {{ form_group(form.year_build, 'form-control') }}
+                                {{ form_group(form.year_remodel, 'form-control') }}
+                                {{ form_group(form.building_type, 'form-select') }}
+                            </div>
+                            <div data-page="2">
+                                {{ form_group(form.house_style, 'form-select') }}
+                                {{ form_group(form.foundation, 'form-select') }}
+                                {{ form_group(form.overall_quality, 'form-select') }}
+                                {{ form_group(form.overall_condition, 'form-select') }}
+                                {{ form_group(form.functionality, 'form-select') }}
+                                {{ form_group(form.roof_style, 'form-select') }}
+                            </div>
+                            <div data-page="3">
+                                {{ form_group(form.roof_material, 'form-select') }}
+                                {{ form_group(form.exterior_first, 'form-select') }}
+                                {{ form_group(form.exterior_second, 'form-select') }}
+                                {{ form_group(form.exterior_quality, 'form-select') }}
+                                {{ form_group(form.exterior_condition, 'form-select') }}
+                                {{ form_group(form.masonry_veneer_type, 'form-select') }}
+                            </div>
+                            <div data-page="4">
+                                {{ form_group(form.masonry_veneer_area, 'form-control') }}
+                                {{ form_group(form.open_porch_area, 'form-control') }}
+                                {{ form_group(form.enclosed_porch, 'form-control') }}
+                                {{ form_group(form.three_season_porch_area, 'form-control') }}
+                                {{ form_group(form.screen_porch_area, 'form-control') }}
+                                {{ form_group(form.wood_deck_area, 'form-control') }}
+                            </div>
+                            <div data-page="5">
+                                {{ form_group(form.basement_quality, 'form-select') }}
+                                {{ form_group(form.basement_condition, 'form-select') }}
+                                {{ form_group(form.basement_exposure, 'form-select') }}
+                                {{ form_group(form.basement_type_1, 'form-select') }}
+                                {{ form_group(form.basement_finished_area_1, 'form-control') }}
+                                {{ form_group(form.basement_type_2, 'form-select') }}
+                            </div>
+                            <div data-page="6">
+                                {{ form_group(form.basement_finished_area_2, 'form-control') }}
+                                {{ form_group(form.basement_unfinished_area, 'form-control') }}
+                                {{ form_group(form.utilities, 'form-select') }}
+                                {{ form_group(form.electrical, 'form-select') }}
+                                {{ form_group(form.heating_type, 'form-select') }}
+                                {{ form_group(form.heating_quality, 'form-select') }}
+                            </div>
+                            <div data-page="7">
+                                {{ form_group(form.central_air, 'form-control') }}
+                                {{ form_group(form.fireplaces, 'form-control') }}
+                                {{ form_group(form.fireplace_quality, 'form-select') }}
+                                {{ form_group(form.first_floor_area, 'form-control') }}
+                                {{ form_group(form.second_floor_area, 'form-control') }}
+                                {{ form_group(form.lq_finished_area, 'form-control') }}
+                            </div>
+                            <div data-page="8">
+                                {{ form_group(form.full_bath, 'form-control') }}
+                                {{ form_group(form.half_bath, 'form-control') }}
+                                {{ form_group(form.basement_full_bath, 'form-control') }}
+                                {{ form_group(form.basement_half_bath, 'form-control') }}
+                                {{ form_group(form.bedrooms, 'form-control') }}
+                                {{ form_group(form.kitchens, 'form-control') }}
+                            </div>
+                            <div data-page="9">
+                                {{ form_group(form.kitchen_quality, 'form-select') }}
+                                {{ form_group(form.total_rooms, 'form-control') }}
+                                {{ form_group(form.garage_type, 'form-select') }}
+                                {{ form_group(form.garage_year, 'form-select') }}
+                                {{ form_group(form.garage_finish, 'form-select') }}
+                                {{ form_group(form.garage_cars, 'form-control') }}
+                            </div>
+                            <div data-page="10">
+                                {{ form_group(form.garage_area, 'form-control') }}
+                                {{ form_group(form.garage_quality, 'form-select') }}
+                                {{ form_group(form.garage_condition, 'form-select') }}
+                                {{ form_group(form.paved_drive, 'form-select') }}
+                                {{ form_group(form.fence, 'form-select') }}
+                                {{ form_group(form.pool_area, 'form-control') }}
+                            </div>
+                            <div data-page="11">
+                                {{ form_group(form.pool_quality, 'form-select') }}
+                                {{ form_group(form.misc_feature, 'form-select') }}
+                                {{ form_group(form.misc_value, 'form-control') }}
+                            </div>
+                        </div>
+
+                        <div data-control="next" class="d-flex page-control">
+                            <i class="bi bi-chevron-compact-right align-self-center" style="font-size: 2rem"></i>
+                        </div>
+                    </div>
+                    <div class="card-footer d-flex justify-content-between">
+                        <div class="text-success py-1 fw-bold">
+                            {% if price is defined %}
+                                Price: {{ price }}$
+                            {% endif %}
+                        </div>
+                        <div>
+                            <input class="btn btn-primary" type="submit" value="Predict"/>
+                        </div>
+                        {{ form.csrf_token }}
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</main>
+</body>
+</html>

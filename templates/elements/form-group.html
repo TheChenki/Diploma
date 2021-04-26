@@ -1,0 +1,11 @@
+{% macro form_group(form_field, class='') -%}
+    <div class="form-group">
+        {{ form_field.label }}
+        {{ form_field(class_=class) }}
+        <ul>
+        {% for error in form_field.errors %}
+            <li>{{ error }}</li>
+        {% endfor %}
+        </ul>
+    </div>
+{% endmacro %}
