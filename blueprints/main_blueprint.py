@@ -13,6 +13,6 @@ def index():
     if form.validate_on_submit():
         predictor = HousePricePredictor(form)
         price = predictor.predict()
-        return render_template('index.html', form=form, price=str(price))
+        return render_template('index.html', form=form, price=str(price[0][0]))
 
     return render_template('index.html', form=form)
