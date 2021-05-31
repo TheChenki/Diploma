@@ -17,13 +17,11 @@ class HousePricePredictor:
 
     def predict(self):
         price = self.model.predict(self.data) * self.PRICE_COEFFICIENT
-        return price if price > 0 else 0
+        return price.flatten() if price > 0 else [0]
 
     def _load_model(self):
         model_path = os.path.join(app.root_path, 'nn_models', 'model_3_m')
-        #weights_path = os.path.join(app.root_path, 'nn_models', 'model_3_w/')
         self.model = keras.models.load_model(model_path)
-        #self.model.load_weights(weights_path)
 
     def _to_dataframe(self, form: HouseForm):
         self.data = pd.DataFrame()
